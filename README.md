@@ -22,4 +22,5 @@ Con este modelo, buscamos mejorar la identificación de los orígenes de los co�
 
 ## Contacto
 Juan Fernando Ramírez - 20666
+Javier Aguilar - 20611
 
