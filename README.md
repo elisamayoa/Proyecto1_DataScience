@@ -8,7 +8,7 @@ El objetivo es desarrollar un modelo de inteligencia artificial efectivo y preci
 Con este modelo, buscamos mejorar la identificación de los orígenes de los coágulos sanguíneos en accidentes cerebrovasculares mortales y facilitar la prescripción de un tratamiento terapéutico post-AIS más efectivo, reduciendo así la probabilidad de un segundo AIS.
 
 ## Contenido del Repositorio
-- `Análisis_Exploratorio.ipynb`: Jupyter Notebook con el análisis exploratorio de los datos. [Ver notebook]([https://github.com/elisamayoa/Proyecto1_DataScience/blob/main/An%C3%A1lisis_Exploratorio.ipynb])
+- `Análisis_Exploratorio.ipynb`: Jupyter Notebook con el análisis exploratorio de los datos.
 
 ## Requisitos
 - Python 3.x
