@@ -9,6 +9,7 @@ Con este modelo, buscamos mejorar la identificación de los orígenes de los co�
 
 ## Contenido del Repositorio
 - `Análisis_Exploratorio.ipynb`: Jupyter Notebook con el análisis exploratorio de los datos.
+- `Análisis_Exploratorio.doc`: Informe del proyecto
 
 ## Requisitos
 - Python 3.x
@@ -24,3 +25,4 @@ Con este modelo, buscamos mejorar la identificación de los orígenes de los co�
 Juan Fernando Ramírez - 20666
 Javier Aguilar - 20611
 Julio Avila - 20333
+Elisa Samayoa - 20710
