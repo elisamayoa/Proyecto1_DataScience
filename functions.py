@@ -35,9 +35,9 @@ def reduce_resolution(img, base_width=256):
     # Calcular la proporción
     w_percent = base_width / float(img.size[0])
     h_size = int(float(img.size[1]) * float(w_percent))
-    
+    print(base_width, h_size, w_percent)
     # Redimensionar
-    img_resized = img.resize((base_width, h_size), Image.LANCZOS)
+    img_resized = img.resize((base_width, base_width), Image.LANCZOS)
     
     return np.array(img_resized)
 
@@ -52,17 +52,31 @@ def preprocess(image_path):
         # Dimensiones de la imagen
         width, height = slide.dimensions
         # Dimensiones de la ventana
-        window_width, window_height = 7500, 7500
+        window_width, window_height = width//2, height//2
+        
+
+        
         
         # Calcular las coordenadas de inicio para centrar la ventana
         start_x = (width - window_width) // 2
         start_y = (height - window_height) // 2
+        limit_y = height//2
         
+        if width > height:
+            start_x = width - width//3
+            start_y = 0
+            limit_y = height
+        else:
+            start_x = 0
+            start_y = 0
+        
+        print('aaaaaa', start_x, start_y)
+        print('bbbbbb', width, limit_y)
         # Leer la región centrada y redimensionarla
-        image = slide.read_region((start_x, start_y), 0, (window_width, window_height))
+        image = slide.read_region((start_x, start_y), 0, (width, limit_y))
         image = reduce_resolution(image)
         image = np.array(image)
-        
+        print(image.shape)
         # Convertir la imagen a escala de grises
         imagen_gris = np.mean(image, axis=2)
         

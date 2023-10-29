@@ -8,7 +8,18 @@ from functions import *
 from PIL import Image
 from io import BytesIO
 
+def process_data(X_test, image_name):
+    predictions = model.predict(X_test)
+    predicciones_clases = (predictions > 0.5).astype(int).reshape(-1)
 
+    data = {
+        'image_id': [image_name],
+        'probabilidad': f'{(100-predictions[0][0]):.4f}',
+        'categoria': [predicciones_clases[0]]
+    }
+
+    result = pd.DataFrame(data)
+    result
 
 
 
@@ -28,7 +39,21 @@ elif selected_option == "All images":
     image_names = [i.split('/')[1].split('.')[0] for i in image_paths[1:-1]]
     data = pd.read_csv('data/train.csv')
     labels = data[data['image_id'].isin(image_names)]
-    labels
+    X_test = []
+    show_images = []
+
+    for i in range(len(image_names)):
+        image = image_paths[1:-1][i]
+        image2process = preprocess(image)
+        X_test.append(image2process[1])
+        show_images.append(image2process[1])
+        
+    X_test = np.array(X_test)[:,:,:,:3]
+    show_image = st.checkbox("Show Images details")
+    if show_image:
+        for i in range(4):
+            st.image(show_images[i], caption=f'{image_names[i]}', channels='RGBA')
+
 else:
     idx = options.index(selected_option)
     
@@ -36,18 +61,24 @@ else:
     image_name = image.split('/')[1].split('.')[0]
     data = pd.read_csv('data/train.csv')
     label = data[data['image_id']==image_name]
-    label
+    
     image2process = preprocess(image)
     X_test = []
     if image2process:
         X_test.append(image2process[1])
         X_test=np.array(X_test)[:, :, :, :3]
-        predictions = model.predict(X_test)
-        predicciones_clases = (predictions > 0.5).astype(int).reshape(-1)
-
-        print('\naaa',predictions, predicciones_clases)
         
-    st.button('hola')
+        show_image = st.checkbox("Show Image details")
+        if show_image:
+            label
+            st.image(image2process[1], caption='Your Image', use_column_width=True, channels='RGBA')
+ 
+        
+if st.button('Realizar prediccion del coágulo'):
+    if image2process:
+        process_data(X_test, image_name)
+    elif show_image:
+        pass
     
     
     
