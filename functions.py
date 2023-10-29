@@ -1,10 +1,13 @@
 
 import keras.backend as K 
 import numpy as np
+from tensorflow import keras
 from PIL import Image
 import os
 
 
+def loadModel():
+    return keras.models.load_model('model.h5', custom_objects={'f1_score': f1_score})
 
 
 # Get the current working directory
@@ -35,7 +38,6 @@ def reduce_resolution(img, base_width=256):
     # Calcular la proporción
     w_percent = base_width / float(img.size[0])
     h_size = int(float(img.size[1]) * float(w_percent))
-    print(base_width, h_size, w_percent)
     # Redimensionar
     img_resized = img.resize((base_width, base_width), Image.LANCZOS)
     
@@ -70,13 +72,10 @@ def preprocess(image_path):
             start_x = 0
             start_y = 0
         
-        print('aaaaaa', start_x, start_y)
-        print('bbbbbb', width, limit_y)
         # Leer la región centrada y redimensionarla
         image = slide.read_region((start_x, start_y), 0, (width, limit_y))
         image = reduce_resolution(image)
         image = np.array(image)
-        print(image.shape)
         # Convertir la imagen a escala de grises
         imagen_gris = np.mean(image, axis=2)
         
