@@ -12,15 +12,19 @@ Con este modelo, buscamos mejorar la identificación de los orígenes de los co�
 - `Análisis_Exploratorio.pdf`: Informe sobre el análisis exploratorio del proyecto
 - `proyecto-ds.ipynb`: Jupyter Notebook con el preprocesamiento de datos e implementación del modelo de CNN.
 - `Resultados_Parciales.pdf`: Informe sobre los resultados parciales del proyecto
+- `DemoDeAplicación.mp4`: Enseña una pequeña demo de la aplicación realizada.
+- `app.py`: Aplicación realizada con streamlit para la demostración de resultados.
 
 ## Requisitos
 - Python 3.x
 - Librerías: pandas, seaborn, matplotlib, scipy, statsmodels (puedes incluir otras que hayas usado)
+- App: Para cargar el app se necesitan tener las librerías puestas en requirements.txt y además descargar las 4 imáganes de test que se encuentran en la página de kaggle de este proyecto. Las imágenes deben ser cargadas a un folder llamado images que se encuentra en root. 
 
 ## Uso
 1. Clone el repositorio en su máquina local.
 2. Asegúrese de tener instaladas todas las librerías mencionadas en la sección de requisitos.
 3. Abra el Jupyter Notebook `Análisis_Exploratorio.ipynb` y ejecútelo para ver los análisis realizados.
+4. Para usar el app se debe correr `streamlit run app.py`
 
 
 ## Contacto
