@@ -45,15 +45,12 @@ def reduce_resolution(img, base_width=256):
 
 def preprocess(image_path):
     try:
-        image = Image.open("images/linkedinpp.tif")
 
-        print('aaaaaaaaaaaaaa')
         # Cargar la imagen con OpenSlide
         slide = OpenSlide(image_path)
         
         # Dimensiones de la imagen
         width, height = slide.dimensions
-        print(width, height)
         # Dimensiones de la ventana
         window_width, window_height = 7500, 7500
         
