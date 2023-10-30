@@ -9,7 +9,9 @@ Con este modelo, buscamos mejorar la identificación de los orígenes de los co�
 
 ## Contenido del Repositorio
 - `Análisis_Exploratorio.ipynb`: Jupyter Notebook con el análisis exploratorio de los datos.
-- `Análisis_Exploratorio.doc`: Informe del proyecto
+- `Análisis_Exploratorio.pdf`: Informe sobre el análisis exploratorio del proyecto
+- `proyecto-ds.ipynb`: Jupyter Notebook con el preprocesamiento de datos e implementación del modelo de CNN.
+- `Resultados_Parciales.pdf`: Informe sobre los resultados parciales del proyecto
 
 ## Requisitos
 - Python 3.x
