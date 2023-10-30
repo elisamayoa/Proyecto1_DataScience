@@ -1,0 +1,7 @@
+__pycache__
+model.h5
+pre_model.h5
+app
+openslide*
+images
+prueba*
